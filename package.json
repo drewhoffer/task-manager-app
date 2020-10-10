@@ -9,6 +9,9 @@
     "eslint:fix": "eslint --fix"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
     "next": "9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
