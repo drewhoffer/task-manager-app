@@ -13,6 +13,8 @@ const userSchema = new mongoose.Schema ({
 		type: String,
 		required: true,
 		trim: true,
+		minlength: 3,
+		maxlength: 25
 	},
 	email : {
 		type: String,
@@ -85,16 +87,6 @@ userSchema.statics.findByCredentials = async (email, password) =>{
 
 };
 
-//Securely encrypt user password using bcrypt
-userSchema.pre("save", async function(next) {	
-	const user = this;
-	if (user.isModified("password")){
-		user.password = await bcrypt.hash(user.password, 8);
-	}
-
-	next();
-
-});
 
 //Remove related tasks if a user removes their account
 userSchema.pre("remove", async function (next){
