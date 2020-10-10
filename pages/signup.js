@@ -3,6 +3,9 @@ import React from "react";
 import axios from "axios";
 import baseUrl from "../utils/baseUrl";
 import catchErrors from "../utils/catchErrors";
+import { handleLogin } from "../utils/auth";
+
+
 const INITIAL_USER = {
 	name: "drew",
 	email: "dhoffer8537@outlook.com",
@@ -20,13 +23,13 @@ export default function SignUp() {
 	}
 
 	async function handleSubmit(event) {
-		console.log(name);
 		event.preventDefault();
 		try {
+			setError("");
 			const url = `${baseUrl}/api/signup`;
 			const payload = { ...user};
 			const response = await axios.post(url, payload);
-			console.log(response.data);
+			handleLogin(response.data);
 		}catch(error) {
 			catchErrors(error, setError);
 		}

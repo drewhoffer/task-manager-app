@@ -27,8 +27,7 @@ const taskSchema = new mongoose.Schema({
 });
 
 
-const Task = mongoose.model("Task", taskSchema);
 
 
-
-module.exports = Task;
+//prevent overwrite of task model once compiled
+export default mongoose.models.Task || mongoose.model("Task", taskSchema);

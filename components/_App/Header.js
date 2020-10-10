@@ -13,7 +13,6 @@ export default function Header () {
 			<Link href="/login">
 				<a>Login</a>
 			</Link>
-			<h2>Hello</h2>
 		</>
 	);
 }

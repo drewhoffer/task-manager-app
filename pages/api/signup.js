@@ -13,7 +13,6 @@ export default async (req, res) => {
 	const { name, email, password } = req.body; //for now, later we want avatar
 	try {
 		try {
-			console.log(req.body);
 
 			validateSignup(name, email, password);
 			const user = await User.findOne( { email });
@@ -40,13 +39,10 @@ export default async (req, res) => {
 			res.status(201).json(token);
 		}
 		catch(e) {
-			console.log(e);
 			return res.status(422).send(e);
 		}
 	}
 	catch(e) {
-		console.log(e);
-
 		res.status(500).send("Error signing up user, please try again later.");
 	}
 
