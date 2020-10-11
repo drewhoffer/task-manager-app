@@ -49,7 +49,6 @@ class MyApp extends App {
 				const url = `${baseUrl}/api/account`;
 				const response = await axios.get(url, payload);
 				const user = response.data;
-					
 				pageProps.user = user;
 			}catch(error) {
 				//throw out the invalid token
@@ -66,7 +65,6 @@ class MyApp extends App {
 	//needed to logoout on multiple tabs if the user is utilizing many
 	componentDidMount() {
 		window.addEventListener("storage", this.syncLogout);
-	
 	}
 
 	//If user logs out on one tab we want to log them out and bring all tabs to login

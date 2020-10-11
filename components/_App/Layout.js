@@ -6,7 +6,7 @@ export const siteTitle = "Task Manager App";
 
 
 
-export default function Layout ({ children }) {
+export default function Layout ({ children, user }) {
 	return (
 		<>
 			<Head>
@@ -14,7 +14,7 @@ export default function Layout ({ children }) {
 				<meta name="og:title" content={siteTitle} />
 				<title>{siteTitle}</title>
 			</Head>
-			<Header />
+			<Header user={user}/>
 			{children}
 			<Footer />
 		</>

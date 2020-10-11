@@ -47,10 +47,7 @@ export default function SignUp() {
 					type="text" placeholder="Email"/>
 				
 				<input name="password" value={user.password} onChange={handleChange}
-					type="password" placeholder="Password"/>
-				<input name="confirm-password" value={user.password} onChange={handleChange}
-					type="password" placeholder="Confirm Password"/>
-				
+					type="password" placeholder="Password"/>				
 				
 				<button type="submit">Sign Up</button>
 			</form>
