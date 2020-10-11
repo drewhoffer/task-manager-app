@@ -13,6 +13,8 @@ module.exports = {
   ```
 Then run 
 ```bash
+npm i
+# then
 npm run dev
 # or
 yarn dev
