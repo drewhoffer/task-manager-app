@@ -26,15 +26,18 @@ async function handleGetRequest ( req, res )  {
         
 		const { userId } = jwt.verify(req.headers.authorization,
 			process.env.JWT_SECRET);
-
 		const user = await User.findOne({ _id: userId });
+		
 		if (user) {
 			return res.status(200).json(user);
+
 		} else {
 			return res.status(404).send("User not found");
+
 		}
 	} catch ( error ){
 		return res.status(403).send("Invalid token");
+
 	}
 
 }
