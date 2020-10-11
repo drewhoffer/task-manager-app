@@ -50,6 +50,11 @@ class MyApp extends App {
 				const response = await axios.get(url, payload);
 				const user = response.data;
 				pageProps.user = user;
+				//if logged in do not allow them to go back to login page
+				if (ctx.pathname === "/login" && user) {
+					redirectUser(ctx, "/dashboard");
+
+				}
 			}catch(error) {
 				//throw out the invalid token
 				destroyCookie(ctx, "token");
