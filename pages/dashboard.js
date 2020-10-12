@@ -32,7 +32,6 @@ Dashboard.getInitialProps = async (ctx) => {
 		const payload = { headers: { Authorization: token}};
 		const url = `${baseUrl}/api/tasks`;
 		const response = await axios.get(url, payload);
-		console.log(response);
 		return response.data;
 	}
 

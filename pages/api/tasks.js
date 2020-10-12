@@ -14,6 +14,7 @@ export default async (req, res) => {
 		await handleGetRequest(req, res);
 		break;
 	case "POST":
+		console.log("Got here");
 		await handlePostRequest(req, res);
 		break;
 	default:
@@ -25,6 +26,7 @@ export default async (req, res) => {
 
 async function handleGetRequest(req, res) {
 	if (!("authorization" in req.headers)) {
+
 		return res.status(401).send("No Authorization token");
 	}
 	try{
@@ -46,7 +48,9 @@ async function handleGetRequest(req, res) {
 
 //post /api/tasks
 async function handlePostRequest(req, res) {
+
 	if (!("authorization" in req.headers)) {
+
 		return res.status(401).send("No Authorization token");
 	}
 	try{

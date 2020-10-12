@@ -41,6 +41,15 @@ export default function Header ({ user }) {
 								Dashboard
 							</Menu.Item>
 						</Link>
+						<Link href="/create">
+							<Menu.Item header active={isActive("/create")}>
+								<Icon 
+									name="add square"
+									size="large"
+								/>
+								Create
+							</Menu.Item>
+						</Link>
 						<Menu.Item header onClick={ handleLogout }>
 							<Icon
 								size="large"
