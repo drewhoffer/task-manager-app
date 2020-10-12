@@ -2,20 +2,12 @@ import { parseCookies} from "nookies";
 import axios from "axios";
 
 import baseUrl from "../utils/baseUrl";
-
+import DashboardTasks from "../components/Dashboard/DashboardTasks";
 export function Dashboard ({ user, tasks }) {
 	return (
 		<>
 			<h1>Hello {user.name}</h1>
-			<ul>
-				{tasks.map((task) => (
-					<>
-						<p>title: {task.title}</p>
-						<p>description: {task.description}</p>
-						<p>completed: {task.completed}</p>
-					</>)
-				)}
-			</ul>
+			<DashboardTasks tasks = {tasks}/>
 		</>
 	);
 }
