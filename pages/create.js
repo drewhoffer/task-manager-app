@@ -65,8 +65,10 @@ export default function Create() {
 		setTask(prevState => ({...prevState, [name]:value}));
 	}
 
-	function handleToggleChange(_event,{checked} ) {
-		setCompleted(!checked);
+	function handleToggleChange() {
+
+		setCompleted(prevState => !prevState);
+
 	}
 
 	return (
@@ -110,11 +112,11 @@ export default function Create() {
 					/>
                     
 					<Form.Field >
-						<Checkbox 
-							toggle 
+						<Checkbox
 							name="completed"
 							label="Completed"
-							checked={task.completed}
+							toggle
+							checked={completed}
 							onChange={handleToggleChange}
 						/>
 					</Form.Field>

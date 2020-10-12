@@ -15,11 +15,11 @@ export default function DashboardTasks ({tasks}) {
 				content: (
 					<>
 						<Container>
-							<Header as="h2">Title{task.title}</Header>
+							<Header as="h2">Title: {task.title}</Header>
 							<Divider/>
-							<Header as="h4">Description</Header>
+							<Header as="h4">Description:</Header>
 							<p>{task.description}</p>
-							<Header as="h4">Completed</Header>
+							<Header as="h4">Completed: </Header>
 							<p>{task.completed.toString()}</p>
 						</Container>
 					</>
