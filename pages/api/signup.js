@@ -33,7 +33,7 @@ export default async (req, res) => {
             
 			//create token now (this step is skipped if you want to await an activation email)
 			const token = jwt.sign({ userId: newUser._id}, process.env.JWT_SECRET, {
-				expiresIn: "1h"
+				expiresIn: "1s"
 			});
 
 			res.status(201).json(token);

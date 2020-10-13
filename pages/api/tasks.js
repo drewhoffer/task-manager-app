@@ -14,7 +14,6 @@ export default async (req, res) => {
 		await handleGetRequest(req, res);
 		break;
 	case "POST":
-		console.log("Got here");
 		await handlePostRequest(req, res);
 		break;
 	default:

@@ -19,7 +19,7 @@ export default async (req, res) => {
 		const passwordsMatch = await bcrypt.compare(password, user.password);
 		if (passwordsMatch){
 			const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {
-				expiresIn: "4h"
+				expiresIn: "1s"
 			});
 			res.status(200).json(token);
 		}
@@ -27,7 +27,6 @@ export default async (req, res) => {
 			res.status(401).send("Username or password is incorrect");
 		}
 	}catch(error) {
-		console.error(error);
 		res.status(500).send("Error logging in user");
 	}
 };

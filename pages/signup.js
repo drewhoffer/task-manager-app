@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import axios from "axios";
-import { Button, Form, Icon, Message } from "semantic-ui-react";
+import { Button, Form, Icon, Message, Segment } from "semantic-ui-react";
 
 
 
@@ -74,61 +74,64 @@ export default function SignUp() {
 					header="Oops!"
 					content={error}
 				/>
-				<Form.Input
-					fluid
-					icon="user"
-					iconPosition="left"
-					label="Name"
-					placeholder="Name"
-					name="name"
-					value={user.name}
-					onChange={handleChange}
-				/>
-				<Form.Input
-					fluid
-					icon="envelope"
-					iconPosition="left"
-					label="Email"
-					placeholder="Email"
-					name="email"
-					type="email"
-					value={user.email}
+				<Segment>
+					<Form.Input
+						fluid
+						icon="user"
+						iconPosition="left"
+						label="Name"
+						placeholder="Name"
+						name="name"
+						value={user.name}
+						onChange={handleChange}
+					/>
+					<Form.Input
+						fluid
+						icon="envelope"
+						iconPosition="left"
+						label="Email"
+						placeholder="Email"
+						name="email"
+						type="email"
+						value={user.email}
 
-					onChange={handleChange}
+						onChange={handleChange}
 
-				/>
-				<Form.Input
-					fluid
-					icon="lock"
-					iconPosition="left"
-					label="Password"
-					placeholder="Password"
-					name="password"
-					type="password"
-					value={user.password}
-					onChange={handleChange}
+					/>
+					<Form.Input
+						fluid
+						icon="lock"
+						iconPosition="left"
+						label="Password"
+						placeholder="Password"
+						name="password"
+						type="password"
+						value={user.password}
+						onChange={handleChange}
 
-				/>
-				<Form.Input
-					fluid
-					icon="lock"
-					iconPosition="left"
-					label="Confirm_Password"
-					placeholder="Confirm Password"
-					name="confirm_password"
-					type="password"
-					value={user.confirm_password}
-					onChange={handleChange}
+					/>
+					<Form.Input
+						fluid
+						icon="lock"
+						iconPosition="left"
+						label="Confirm_Password"
+						placeholder="Confirm Password"
+						name="confirm_password"
+						type="password"
+						value={user.confirm_password}
+						onChange={handleChange}
 
-				/>
+					/>
 
-				<Button
-					icon="signup"
-					type="submit"
-					color="blue"
-					content="Signup"
-					disabled={disabled || loading}
-				/>   
+					<Button
+						icon="signup"
+						type="submit"
+						color="blue"
+						content="Signup"
+						disabled={disabled || loading}
+					/>   
+				</Segment>
+
 			</Form>
 			<Message attached="bottom" warning>
 				<Icon 

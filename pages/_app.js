@@ -4,7 +4,6 @@ import { parseCookies, destroyCookie } from "nookies";
 import App from "next/app";
 
 
-
 import Layout from "../components/_App/Layout";
 import { redirectUser } from "../utils/auth";
 import baseUrl from "../utils/baseUrl";
@@ -19,11 +18,12 @@ import baseUrl from "../utils/baseUrl";
 
 class MyApp extends App {
 
-
+	
 	static async getInitialProps({ Component, ctx}) {
-		//grab token from cookies
+		// eslint-disable-next-line no-unused-vars
 		const { token } = parseCookies(ctx);
 
+		//grab token from cookies
 		//get data ready to be initialized
 		let pageProps = {};
 
@@ -33,10 +33,11 @@ class MyApp extends App {
 		if (Component.getInitialProps) {
 			pageProps = await Component.getInitialProps(ctx);
 		}
-
-		if(!token) {
+		const { newToken } = parseCookies(ctx);
+		
+		if(!newToken) {
 			//here is where we list our protected routes
-			const isProtectedRoute = ctx.pathname === "/dashboard";
+			const isProtectedRoute = ctx.pathname === "/dashboard" || ctx.pathname === "/create";
 			if (isProtectedRoute) {
 				redirectUser(ctx, "/login");
 			}
@@ -45,7 +46,7 @@ class MyApp extends App {
 			//they have a token
 			try {
 				//lets connect to the route
-				const payload = { headers: {Authorization: token } };
+				const payload = { headers: {Authorization: newToken } };
 				const url = `${baseUrl}/api/account`;
 				const response = await axios.get(url, payload);
 				const user = response.data;
@@ -58,7 +59,6 @@ class MyApp extends App {
 			}catch(error) {
 				//throw out the invalid token
 				destroyCookie(ctx, "token");
-
 				//redirect to login
 				redirectUser(ctx, "/");
 			}
