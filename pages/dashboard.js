@@ -19,6 +19,7 @@ Dashboard.getInitialProps = async (ctx) => {
 
 	if (!token) {
 		//they arent authenticated, give them a blank set of tasks
+
 		return {
 			tasks: []
 		};

@@ -33,9 +33,8 @@ class MyApp extends App {
 		if (Component.getInitialProps) {
 			pageProps = await Component.getInitialProps(ctx);
 		}
-		const { newToken } = parseCookies(ctx);
-		
-		if(!newToken) {
+
+		if(!token) {
 			//here is where we list our protected routes
 			const isProtectedRoute = ctx.pathname === "/dashboard" || ctx.pathname === "/create";
 			if (isProtectedRoute) {
@@ -46,7 +45,7 @@ class MyApp extends App {
 			//they have a token
 			try {
 				//lets connect to the route
-				const payload = { headers: {Authorization: newToken } };
+				const payload = { headers: {Authorization: token } };
 				const url = `${baseUrl}/api/account`;
 				const response = await axios.get(url, payload);
 				const user = response.data;
